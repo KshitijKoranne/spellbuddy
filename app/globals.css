@@ -1,115 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --bg: #fef9f0;
-  --card: #ffffff;
   --primary: #ff6b6b;
-  --primary-light: #ff9f9f;
   --secondary: #4ecdc4;
-  --secondary-light: #a8ebe7;
   --accent: #ffe66d;
-  --accent-dark: #f5d000;
-  --purple: #c77dff;
-  --green: #52c41a;
   --text: #2d3436;
   --text-light: #636e72;
   --border: #f0e6d3;
-  --shadow: rgba(255, 107, 107, 0.15);
 }
 
-* { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
 
-html, body {
-  font-family: 'Nunito', sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-}
+html { background-color: #fef9f0; }
 
 body {
-  background-image: 
-    radial-gradient(circle at 20% 20%, rgba(255, 107, 107, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(78, 205, 196, 0.06) 0%, transparent 50%);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #fef9f0;
+  color: #2d3436;
 }
 
 @keyframes bounce-in {
-  0% { transform: scale(0.3); opacity: 0; }
-  50% { transform: scale(1.05); }
-  70% { transform: scale(0.9); }
+  0%   { transform: scale(0.3); opacity: 0; }
+  50%  { transform: scale(1.05); }
+  70%  { transform: scale(0.9); }
   100% { transform: scale(1); opacity: 1; }
 }
 @keyframes wiggle {
   0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-5deg); }
-  75% { transform: rotate(5deg); }
+  25%       { transform: rotate(-5deg); }
+  75%       { transform: rotate(5deg); }
 }
 @keyframes pulse-ring {
-  0% { transform: scale(1); opacity: 1; }
+  0%   { transform: scale(1); opacity: 1; }
   100% { transform: scale(1.6); opacity: 0; }
 }
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50%       { transform: translateY(-10px); }
 }
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
-  20% { transform: translateX(-8px); }
-  40% { transform: translateX(8px); }
-  60% { transform: translateX(-6px); }
-  80% { transform: translateX(6px); }
+  20%       { transform: translateX(-8px); }
+  40%       { transform: translateX(8px); }
+  60%       { transform: translateX(-6px); }
+  80%       { transform: translateX(6px); }
 }
 @keyframes slot-fill {
-  0% { transform: scale(0) rotate(-10deg); }
-  60% { transform: scale(1.2) rotate(5deg); }
+  0%   { transform: scale(0) rotate(-10deg); }
+  60%  { transform: scale(1.2) rotate(5deg); }
   100% { transform: scale(1) rotate(0deg); }
 }
-@keyframes star-pop {
-  0% { transform: scale(0) rotate(-20deg); opacity: 0; }
-  60% { transform: scale(1.3) rotate(5deg); opacity: 1; }
-  100% { transform: scale(1) rotate(0deg); opacity: 1; }
-}
 
-.animate-bounce-in { animation: bounce-in 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
-.animate-wiggle { animation: wiggle 0.5s ease-in-out; }
-.animate-float { animation: float 3s ease-in-out infinite; }
-.animate-shake { animation: shake 0.4s ease-in-out; }
+.animate-bounce-in { animation: bounce-in 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
+.animate-wiggle    { animation: wiggle 0.5s ease-in-out; }
+.animate-float     { animation: float 3s ease-in-out infinite; }
+.animate-shake     { animation: shake 0.4s ease-in-out; }
 .animate-slot-fill { animation: slot-fill 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards; }
 
-.mic-pulse::before, .mic-pulse::after {
+.mic-pulse::before,
+.mic-pulse::after {
   content: '';
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  border: 3px solid var(--primary);
+  border: 3px solid #ff6b6b;
   animation: pulse-ring 1.5s ease-out infinite;
 }
 .mic-pulse::after { animation-delay: 0.5s; }
-
-.card-shadow {
-  box-shadow: 0 8px 32px rgba(255,107,107,0.15), 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #ff6b6b, #ff9f9f);
-  color: white; border: none; border-radius: 16px;
-  font-family: 'Nunito', sans-serif; font-weight: 800;
-  cursor: pointer; transition: all 0.2s ease;
-  box-shadow: 0 4px 15px rgba(255,107,107,0.4);
-}
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,107,107,0.5); }
-.btn-primary:active { transform: translateY(0); }
-
-.btn-secondary {
-  background: linear-gradient(135deg, #4ecdc4, #a8ebe7);
-  color: white; border: none; border-radius: 16px;
-  font-family: 'Nunito', sans-serif; font-weight: 800;
-  cursor: pointer; transition: all 0.2s ease;
-  box-shadow: 0 4px 15px rgba(78,205,196,0.4);
-}
-.btn-secondary:hover { transform: translateY(-2px); }
